@@ -100,6 +100,7 @@ booksRouter.put(
 
       const result = await books.findByIdAndUpdate(id, data, { new: true });
 
+      console.log(result);
       if (!result) {
         return res.status(404).json({
           success: false,
@@ -139,7 +140,7 @@ booksRouter.delete(
     } catch (error: any) {
       res.status(500).json({
         success: false,
-        message: "server error",
+        message: "something went wrong",
         error: error.message || error,
       });
     }

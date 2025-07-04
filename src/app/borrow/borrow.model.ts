@@ -1,4 +1,4 @@
-import mongoose, { model, Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 import { IBorrow } from "./borrow.interface";
 
 const borrowSchema = new Schema<IBorrow>(

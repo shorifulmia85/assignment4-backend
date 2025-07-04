@@ -2,6 +2,7 @@
 import { Error } from "mongoose";
 
 export const formatError = (err: any) => {
+  // ✅ Handle Mongoose validation errors
   if (err.name === "ValidationError") {
     const formattedErrors: Record<string, any> = {};
 
@@ -27,6 +28,23 @@ export const formatError = (err: any) => {
     };
   }
 
+  // ✅ Handle Duplicate Key Error (E11000)
+  if (err.code === 11000) {
+    const duplicateField = Object.keys(err.keyValue || {})[0];
+    const duplicateValue = err.keyValue?.[duplicateField];
+
+    return {
+      success: false,
+      message: ` already exists this ${duplicateField} number`,
+      error: {
+        name: "DuplicateKeyError",
+        field: duplicateField,
+        value: duplicateValue,
+      },
+    };
+  }
+
+  // ✅ Generic error fallback
   return {
     success: false,
     message: err.message || "Something went wrong",

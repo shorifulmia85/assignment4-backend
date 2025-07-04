@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response, Router } from "express";
 import { books } from "../book/book-model";
 import { borrows } from "./borrow.model";

@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.borrowRouter = void 0;
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const express_1 = require("express");
 const book_model_1 = require("../book/book-model");
 const borrow_model_1 = require("./borrow.model");

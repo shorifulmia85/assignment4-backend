@@ -21,7 +21,7 @@ function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             yield mongoose_1.default.connect(process.env.URI);
-            console.log("🟢 MongoDB connected successfully");
+            console.log(" MongoDB connected successfully");
             app_1.default.listen(port, () => {
                 console.log(`Server is running on port ${port}`);
             });

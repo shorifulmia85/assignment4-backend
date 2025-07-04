@@ -11,6 +11,10 @@ const bookSchema = new Schema<IBook, BookModel>(
       type: String,
       required: true,
     },
+    bookImg: {
+      type: String,
+      required: true,
+    },
     genre: {
       type: String,
       required: true,

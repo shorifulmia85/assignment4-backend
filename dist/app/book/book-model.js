@@ -44,9 +44,9 @@ const bookSchema = new mongoose_1.Schema({
         min: [0, "Copies must be a positive number"],
     },
     available: {
-        type: Boolean,
+        type: String,
+        enum: ["AVAILABLE", "BORROWED"],
         required: true,
-        default: true,
     },
 }, {
     timestamps: true,
@@ -63,7 +63,7 @@ bookSchema.statics.updateCopies = function (bookId, quantity) {
         }
         book.copies = book.copies - quantity;
         if (book.copies === 0) {
-            book.available = false;
+            book.available = "BORROWED";
         }
         yield book.save();
         return book;
